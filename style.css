@@ -1,0 +1,500 @@
+
+/* =========================
+   COLOUR PALETTE
+========================= */
+
+:root {
+    --background: #FFF5E9;
+    --primary: #F4B8C8;
+    --primary-dark: #D989A5;
+    --secondary: #E8DDF8;
+    --accent: #FFDCCB;
+    --text: #59434F;
+    --muted: #967987;
+    --card: #FFFCFA;
+}
+
+/* =========================
+   GLOBAL STYLES
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--background);
+    color: var(--text);
+    font-family: 'Quicksand', sans-serif;
+    overflow-x: hidden;
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    padding: 60px 25px 30px;
+    position: relative;
+    z-index: 1;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.small-text {
+    font-family: 'Caveat', cursive;
+    font-size: 24px;
+    color: var(--primary-dark);
+}
+
+.title {
+    font-family: 'Fredoka', sans-serif;
+    font-size: clamp(38px, 6vw, 65px);
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 10px 0 20px;
+}
+
+.title span {
+    display: inline-block;
+    animation: heartbeat 1.5s infinite;
+}
+
+.subtitle {
+    font-size: clamp(17px, 3vw, 25px);
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+.second {
+    margin-top: 5px;
+}
+
+/* =========================
+   MOTIVATION CARD
+========================= */
+
+.box {
+    background: var(--card);
+    border: 2px solid #F5C8D5;
+    border-radius: 30px;
+
+    padding: 45px 25px;
+    text-align: center;
+
+    box-shadow:
+        0 10px 30px rgba(190, 125, 150, 0.12),
+        0 3px 8px rgba(190, 125, 150, 0.06);
+
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.box:hover {
+    transform: translateY(-4px);
+}
+
+.card-heart {
+    font-size: 35px;
+    color: var(--primary-dark);
+    margin-bottom: 15px;
+}
+
+.box h2 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: clamp(22px, 4vw, 32px);
+    line-height: 1.4;
+}
+
+.highlight {
+    color: var(--primary-dark);
+}
+
+.card-description {
+    max-width: 600px;
+    margin: 18px auto 25px;
+    color: var(--muted);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.8;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.box button {
+    background: linear-gradient(
+        135deg,
+        #F4B8C8,
+        #EBA5BA
+    );
+
+    color: #704653;
+
+    border: none;
+    border-radius: 50px;
+
+    padding: 14px 35px;
+
+    font-family: 'Fredoka', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow: 0 5px 15px rgba(217, 137, 165, 0.25);
+
+    transition: all 0.3s ease;
+}
+
+.box button:hover {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 8px 20px rgba(217, 137, 165, 0.35);
+}
+
+.box button:active {
+    transform: scale(0.96);
+}
+
+/* =========================
+   MESSAGE BOX
+========================= */
+
+.message-container {
+    display: none;
+
+    max-width: 650px;
+    margin: 30px auto 0;
+
+    padding: 25px;
+
+    background: #FFF0F4;
+    border-radius: 22px;
+    border: 1px dashed #EBA5BA;
+
+    animation: appear 0.5s ease;
+}
+
+.message-container.show {
+    display: block;
+}
+
+#messageText {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.8;
+    color: var(--text);
+}
+
+#messageSign {
+    display: block;
+    font-family: 'Caveat', cursive;
+    font-size: 25px;
+    color: var(--primary-dark);
+    margin-top: 15px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+    margin-top: 55px;
+    line-height: 1.8;
+}
+
+footer p {
+    font-family: 'Caveat', cursive;
+    font-size: 26px;
+    color: var(--primary-dark);
+}
+
+footer span {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 600;
+}
+
+/* =========================
+   FLOATING DECORATIONS
+========================= */
+
+.floating-heart {
+    position: fixed;
+    color: #EBA5BA;
+    opacity: 0.6;
+    pointer-events: none;
+    animation: float 5s ease-in-out infinite;
+    z-index: 0;
+}
+
+.heart1 {
+    top: 15%;
+    left: 8%;
+    font-size: 40px;
+}
+
+.heart2 {
+    top: 30%;
+    right: 10%;
+    font-size: 30px;
+    animation-delay: 1s;
+}
+
+.heart3 {
+    bottom: 15%;
+    left: 15%;
+    font-size: 35px;
+    animation-delay: 2s;
+}
+
+.heart4 {
+    bottom: 20%;
+    right: 12%;
+    font-size: 45px;
+    animation-delay: 1.5s;
+}
+
+.heart5 {
+    top: 65%;
+    right: 30%;
+    font-size: 22px;
+    animation-delay: 3s;
+}
+
+/* POPUP OVERLAY */
+
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(65, 43, 53, 0.35);
+    backdrop-filter: blur(6px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    z-index: 1000;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.3s ease;
+}
+
+.popup-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* POPUP BOX */
+
+.popup-box {
+    position: relative;
+
+    background: #FFF8F5;
+
+    width: 100%;
+    max-width: 450px;
+
+    padding: 40px 30px;
+
+    border: 2px solid #F4B8C8;
+    border-radius: 30px;
+
+    text-align: center;
+
+    box-shadow: 0 15px 50px rgba(120, 65, 85, 0.2);
+
+    transform: scale(0.7) translateY(30px);
+    transition: 0.4s ease;
+}
+
+.popup-overlay.active .popup-box {
+    transform: scale(1) translateY(0);
+}
+
+/* CLOSE BUTTON */
+
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+
+    background: none;
+    border: none;
+
+    font-size: 30px;
+    color: #B87991;
+
+    cursor: pointer;
+}
+
+/* POPUP CONTENT */
+
+.popup-heart {
+    font-size: 45px;
+    margin-bottom: 15px;
+
+    animation: heartbeat 1.5s infinite;
+}
+
+.popup-box h2 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 25px;
+    color: #D989A5;
+    margin-bottom: 20px;
+}
+
+#messageText {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.8;
+    color: #59434F;
+    margin-bottom: 20px;
+}
+
+#messageSign {
+    display: block;
+
+    font-family: 'Caveat', cursive;
+    font-size: 25px;
+    color: #D989A5;
+
+    margin-bottom: 25px;
+}
+
+/* ANOTHER MESSAGE BUTTON */
+
+.another-btn {
+    background: #F4B8C8;
+    color: #704653;
+
+    border: none;
+    border-radius: 30px;
+
+    padding: 12px 25px;
+
+    font-family: 'Fredoka', sans-serif;
+    font-size: 16px;
+
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.another-btn:hover {
+    background: #EBA5BA;
+    transform: scale(1.05);
+}
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+    .popup-box {
+        padding: 35px 20px;
+    }
+
+    .popup-box h2 {
+        font-size: 22px;
+    }
+
+    #messageText {
+        font-size: 15px;
+    }
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(12deg);
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   MOBILE RESPONSIVENESS
+========================= */
+
+@media (max-width: 600px) {
+
+    .container {
+        padding: 45px 18px 25px;
+    }
+
+    .header {
+        margin-bottom: 35px;
+    }
+
+    .box {
+        padding: 35px 18px;
+    }
+
+    .card-description {
+        font-size: 14px;
+    }
+
+    #messageText {
+        font-size: 16px;
+    }
+
+    .heart1 {
+        left: 3%;
+    }
+
+    .heart2 {
+        right: 3%;
+    }
+
+    .heart5 {
+        display: none;
+    }
+}
